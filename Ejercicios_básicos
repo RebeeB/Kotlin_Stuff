@@ -1,0 +1,210 @@
+/*  1. Escribe un programa que pida al usuario dos números enteros y calcule su suma.
+    2. Escribe un programa que pida el radio de un círculo y calcule su área. Utiliza la fórmula Área = π * radio^2.
+    3. Escribe un programa que convierta grados Celsius a Fahrenheit. Usa la fórmula: F = C * 9/5 + 32.
+    4. Escribe un programa que lea un número entero y determine si es par o impar (el if es igual que en Java)
+    5. Escribe un programa que lea dos números enteros y determine cuál es mayor.
+    6. Escribe un programa que calcule el factorial de un número ingresado por el usuario.
+    7. Escribe un programa que simule una calculadora básica. El programa debe pedir al usuario dos números y una operación (suma, resta, multiplicación, división) y mostrar el resultado.
+    8. Escribe un programa que determine si un número ingresado por el usuario es primo
+    9. Escribe un programa que maneje información de usuarios, donde algunos campos pueden ser opcionales (es decir, pueden ser null). 
+      En el programa, ni el apellido ni la edad pueden ser null. Si no se proporciona la edad, debes manejar un valor por defecto. 
+      Crear una función que reciba el nombre, apellido y edad y devuelva un mensaje con la información completa del usuario. Maneja de forma segura los posibles nulos  */
+
+//EJERCICIO 1
+
+fun main() {
+var operando1: Int
+var operando2: Int
+var suma : Int
+println("Introduce el primer número")
+    operando1=readln().toInt()
+
+println("Introduce el segundo número")
+    operando2= readln().toInt()
+
+ suma=sumar(operando1,operando2)
+ //println("El resultado de la suma es $suma")
+println("El resultado de la suma es ${sumar(operando1, operando2)}" )
+}
+
+ fun sumar (operando1: Int, operando2: Int): Int {
+     return operando1 + operando2
+ }
+
+//EJERCICIO 2
+
+import kotlin.math.PI
+import kotlin.math.pow
+
+fun main(){
+var radio: Double
+//var area: Double
+println("Introduce el valor del radio")
+radio= readln().toDouble()
+    //area=area_circulo(radio)
+    println("El area del círculo es ${area_circulo(radio)}" )
+}
+
+fun area_circulo(radio: Double): Double{
+    return PI* radio.pow(2)
+}
+
+//EJERCICIO 3
+
+fun main(){
+    var Celsius: Double
+    println("Introduce los grados Celsius")
+    Celsius= readln().toDouble()
+    println("La conversion de Celsius a Fahrenheit es ${conversion(Celsius)}" )
+}
+
+fun conversion(Celsius: Double): Double{
+    return Celsius *9/5+32
+}
+
+//EJERCICIO 4
+
+fun main(){
+    var numero : Int
+    println("Introduce un número")
+    numero=readln().toInt()
+    println("El numero introducido es ${comprobar(numero)}")
+}
+
+fun comprobar(numero: Int): String{
+    if (numero%2==0){
+        return "número par"
+    }else{
+        return "número impar"
+    }
+}
+
+
+//EJERCICIO 5
+
+fun main(){
+var numero1: Int
+var numero2: Int
+    println("Introduce el primer número")
+    numero1=readln().toInt()
+    println("Introduce el segundo número")
+    numero2= readln().toInt()
+    println(menor_mayor(numero1,numero2))
+}
+
+fun menor_mayor (numero1: Int, numero2: Int): String{
+    if(numero1>numero2){
+        return "el número más grande es $numero1"
+
+    }else if(numero2>numero1){
+        return "el número más grande es $numero2"
+
+    }else{
+        return "los dos numeros son iguales"
+    }
+}
+
+//EJERCICIO 6
+
+/*fun main(){
+var numero : Int
+println("Introduce un número")
+    numero=readln().toInt()
+
+}
+
+fun Factorial(numero: Int): String{
+    for (i in 1..numero)
+        return ("El número factorial del $numero es {${Factorial(numero)}}")
+
+}*/
+
+//EJERCICIO 7
+
+fun main(){
+var numero1: Double
+var numero2: Double
+println("Introduce dos numeros, uno por uno")
+println("Introduce el primero")
+    numero1= readln().toDouble()
+println("Introduce el segundo")
+    numero2= readln().toDouble()
+println("Elige qué quieres hacer con estos números")
+    println("1. sumar")
+    println("2. restar")
+    println("3. multiplicar")
+    println("4. dividir")
+    var opcion: Int
+    opcion= readln().toInt()
+
+    when(opcion){
+        1 -> println ("El resultado de la suma es ${suma(numero1,numero2)}")
+        2 -> println("El resultado de la resta es ${resta(numero1,numero2)}")
+        3 -> println("El resultado de la multiplicación es ${multiplicacion(numero1,numero2)}")
+        4 -> println("El resultado de la division es ${division(numero1,numero2)}")
+        else -> println("Opción no válida")
+    }
+}
+
+//EJERCICIO 8
+
+/*fun main(){
+var numero: Int
+println("Introduce un numero")
+numero= readln().toInt()
+println("El numero introducido es ${primo(numero)}")
+}
+
+fun primo (numero: Int) : String{
+    //Los numeros <=1 no son primos
+    if (numero <= 1) {
+        return "no primo"
+    }
+    //Bucle for para recorrer los números
+    for (i in 1..5) {
+        println(i)
+    }
+
+}*/
+
+//EJERCICIO 9
+
+fun main(){
+    var nombre: String
+    var apellido: String
+    var edad: Int
+
+    println("Introduce tu nombre")
+    nombre= readln()
+    println("Introduce tu apellido")
+    apellido= readln()
+    println("Introduce tu edad")
+    edad= readln().toInt()
+
+    println("Hola ${nombre(nombre)}, ${apellido(apellido)} y tienes ${edad(edad)} años")
+}
+
+fun nombre (nombre: String): String{
+    if(nombre!=null){
+        return "$nombre!"
+    }else{
+        return "Introduce tu nombre"
+    }
+}
+    fun apellido (apellido: String): String{
+        if(apellido!=null){
+            return "Tu apellido es: $apellido!"
+        }else{
+            return "Introduce tu apellido"
+        }
+    }
+    fun edad (edad: Int): String{
+        return "$edad"
+    }
+
+
+
+
+
+
+
