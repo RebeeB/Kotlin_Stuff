@@ -106,18 +106,24 @@ fun menor_mayor (numero1: Int, numero2: Int): String{
 
 //EJERCICIO 6
 
-/*fun main(){
-var numero : Int
-println("Introduce un número")
-    numero=readln().toInt()
+fun main(){
+    var numero: Int
 
+    println("Por favor, introduzca un número")
+    numero = readln().toInt()
+
+    println("El factorial de $numero es ${factorial(numero)}")
 }
 
-fun Factorial(numero: Int): String{
-    for (i in 1..numero)
-        return ("El número factorial del $numero es {${Factorial(numero)}}")
+fun factorial(numero: Int): Int{
+    var resultado: Int = 1
 
-}*/
+    for(i in numero downTo 1){
+        resultado *= i
+        println(resultado)
+    }
+    return resultado;
+}
 
 //EJERCICIO 7
 
@@ -148,24 +154,26 @@ println("Elige qué quieres hacer con estos números")
 
 //EJERCICIO 8
 
-/*fun main(){
-var numero: Int
-println("Introduce un numero")
-numero= readln().toInt()
-println("El numero introducido es ${primo(numero)}")
+fun main(){
+    var numero: Int
+ 
+    println("Introduzca un número para comprobar si es primo")
+    numero = readln().toInt()
+ 
+    println("El número $numero es ${primo(numero)}")
 }
-
-fun primo (numero: Int) : String{
-    //Los numeros <=1 no son primos
-    if (numero <= 1) {
-        return "no primo"
+ 
+fun primo(numero: Int): String{
+ 
+    for(i in 2..numero-1){
+        if(numero % i == 0){
+            return "no primo"
+        }
     }
-    //Bucle for para recorrer los números
-    for (i in 1..5) {
-        println(i)
-    }
-
-}*/
+ 
+    return "primo"
+}
+ 
 
 //EJERCICIO 9
 
@@ -200,6 +208,44 @@ fun nombre (nombre: String): String{
     }
     fun edad (edad: Int): String{
         return "$edad"
+    }
+---------------------OTRA MANERA----------------------
+fun main(){
+    var nombre: String
+    var apellido: String?=null
+    var edad: Int?=0
+
+    println("Introduce tu nombre")
+    nombre= readln()
+    println("Introduce tu apellido")
+    apellido= readln()
+    println("Introduce tu edad")
+    edad= readln().toInt()
+
+    println("Hola ${nombre(nombre)}, ${apellido(apellido)} y tienes ${edad(edad)} años")
+
+}
+
+fun nombre (nombre: String): String{
+    if(nombre!=null){
+        return "$nombre!"
+    }else{
+        return "Introduce tu nombre"
+    }
+
+}
+
+    fun apellido (apellido: String): String{
+        if(apellido!=null){
+            return "Tu apellido es: $apellido!"
+        }else{
+            return "Introduce tu apellido"
+        }
+
+    }
+
+    fun edad (edad: Int=12): Int{
+        return edad
     }
 
 
